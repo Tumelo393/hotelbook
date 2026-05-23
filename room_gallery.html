@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Room Gallery — RoomBooking.com</title>
+  <link rel="stylesheet" href="Style.css">
+</head>
+<body class="page-gallery">
+
+  <!-- ═══ HEADER ═══ -->
+  <header>
+    <div class="logo">Room<span>Booking</span></div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="room_gallery.html" class="active">Rooms</a>
+      <a href="special_offers.html">Offers</a>
+      <a href="about_us.html">About</a>
+      <a href="contact_us.html">Contact</a>
+      <a href="#" class="nav-cta logout-btn">Sign Out</a>
+    </nav>
+  </header>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="gallery-hero">
+    <div class="page-badge">Our Collection</div>
+    <h1>Available Rooms</h1>
+    <p>Thoughtfully designed spaces for every type of traveller and budget.</p>
+  </section>
+
+  <!-- ═══ ROOMS GRID ═══ -->
+  <div class="rooms-grid">
+
+    <!-- Deluxe Room -->
+    <div class="room-card">
+      <div class="room-card-img">
+        <div class="room-card-img-placeholder deluxe">🛏</div>
+        <div class="room-badge">Most Popular</div>
+      </div>
+      <div class="room-card-body">
+        <div class="section-label">Deluxe Room</div>
+        <h3>Deluxe Balcony Room</h3>
+        <p>Spacious retreat with a private balcony and premium amenities for a restful stay.</p>
+        <div class="room-amenities">
+          <span class="amenity-tag">📶 Free WiFi</span>
+          <span class="amenity-tag">❄️ Air Con</span>
+          <span class="amenity-tag">📺 Flat-screen TV</span>
+          <span class="amenity-tag">🌅 Balcony</span>
+        </div>
+        <div class="room-card-footer">
+          <div class="room-price">P500 <span>/ night</span></div>
+          <a href="Room_Details.html" class="btn btn-primary room-card-btn">View Details</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Standard Room -->
+    <div class="room-card">
+      <div class="room-card-img">
+        <div class="room-card-img-placeholder standard">🛏</div>
+        <div class="room-badge">Best Value</div>
+      </div>
+      <div class="room-card-body">
+        <div class="section-label">Standard Room</div>
+        <h3>Classic Standard Room</h3>
+        <p>Essential comfort and modern convenience — perfect for business or solo travel.</p>
+        <div class="room-amenities">
+          <span class="amenity-tag">📶 Free WiFi</span>
+          <span class="amenity-tag">📺 TV</span>
+          <span class="amenity-tag">🧊 Mini Fridge</span>
+        </div>
+        <div class="room-card-footer">
+          <div class="room-price">P280 <span>/ night</span></div>
+          <a href="Room_Details.html" class="btn btn-primary room-card-btn">View Details</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Suite -->
+    <div class="room-card">
+      <div class="room-card-img">
+        <div class="room-card-img-placeholder suite">🏰</div>
+        <div class="room-badge">Luxury</div>
+      </div>
+      <div class="room-card-body">
+        <div class="section-label">Suite</div>
+        <h3>Executive Suite</h3>
+        <p>Indulge in a full luxury suite with kitchenette, living area, and premium furnishings.</p>
+        <div class="room-amenities">
+          <span class="amenity-tag">📶 WiFi</span>
+          <span class="amenity-tag">🍳 Kitchenette</span>
+          <span class="amenity-tag">❄️ Air Con</span>
+          <span class="amenity-tag">🛋 Living Area</span>
+        </div>
+        <div class="room-card-footer">
+          <div class="room-price">P1,000 <span>/ night</span></div>
+          <a href="Room_Details.html" class="btn btn-primary room-card-btn">View Details</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CTA strip -->
+  <div class="gallery-cta">
+    <p class="gallery-cta-copy">Need help choosing the right room?</p>
+    <a href="Contact_Us.html" class="btn btn-primary">Talk to Our Team</a>
+  </div>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer>
+    <div class="footer-links">
+      <a href="about_us.html">About Us</a>
+      <a href="contact_us.html">Contact</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms & Conditions</a>
+    </div>
+    <p>&copy; 2026 <strong>RoomBooking.com</strong> — All rights reserved.</p>
+  </footer>
+
+<script>
+if (localStorage.getItem("rb_logged_in") !== "true") { window.location.href = "Login_.html"; }
+document.querySelectorAll(".logout-btn").forEach(function(btn){
+  btn.addEventListener("click", function(e){
+    e.preventDefault();
+    localStorage.removeItem("rb_logged_in");
+    localStorage.removeItem("rb_user");
+    window.location.href = "Login_.html";
+  });
+});
+</script>
+</body>
+</html>
