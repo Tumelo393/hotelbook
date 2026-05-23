@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home — RoomBooking.com</title>
+  <link rel="stylesheet" href="Style.css">
+  <script>
+    if (localStorage.getItem('rb_logged_in') !== 'true') {
+      window.location.href = 'Login_.html';
+    }
+  </script>
+</head>
+<body class="page-home">
+
+  <!-- ═══ HEADER ═══ -->
+  <header>
+    <div class="logo">Room<span>Booking</span></div>
+    <nav>
+      <a href="index.html" class="active">Home</a>
+      <a href="room_gallery.html">Rooms</a>
+      <a href="special_offers.html">Offers</a>
+      <a href="about_us.html">About</a>
+      <a href="contact_us.html">Contact</a>
+      <a href="#" class="nav-cta" id="logoutBtn">Sign Out</a>
+    </nav>
+  </header>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="home-hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="page-badge">Botswana's Premier Booking Platform</div>
+        <h1>Find Your<br>Perfect <em>Room</em>,<br>Effortlessly.</h1>
+        <p>Browse handpicked accommodations from standard comfort to luxury suites — all with instant, transparent booking and no surprises.</p>
+        <div class="hero-actions">
+          <a href="Room_Gallery.html" class="btn btn-gold">Browse Rooms →</a>
+          <a href="Special_offers.html" class="btn btn-outline">View Offers</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="num">500+</div>
+            <div class="lbl">Rooms Available</div>
+          </div>
+          <div class="hero-stat">
+            <div class="num">98%</div>
+            <div class="lbl">Guest Satisfaction</div>
+          </div>
+          <div class="hero-stat">
+            <div class="num">24/7</div>
+            <div class="lbl">Support</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Search Card -->
+      <div class="search-card">
+        <h3>🔍 Find a Room</h3>
+        <form class="search-fields">
+          <div class="form-group full">
+            <label for="loc">Destination</label>
+            <input type="text" id="loc" name="location" placeholder="e.g. Gaborone, Francistown…" required>
+          </div>
+          <div class="form-group">
+            <label for="cin">Check-in</label>
+            <input type="date" id="cin" name="checkin" required>
+          </div>
+          <div class="form-group">
+            <label for="cout">Check-out</label>
+            <input type="date" id="cout" name="checkout" required>
+          </div>
+          <div class="form-group full">
+            <label for="guests">Number of Guests</label>
+            <input type="number" id="guests" name="guests" min="1" max="10" placeholder="2" required>
+          </div>
+          <button type="submit" class="btn search-submit">Search Rooms</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FEATURES ═══ -->
+  <section class="home-features">
+    <div class="feature-heading">
+      <div class="section-label">Why Choose Us</div>
+      <h2>Booking Made <span>Simple & Secure</span></h2>
+    </div>
+    <div class="features-inner">
+      <div class="feature-card">
+        <h3>Premium Listings Only</h3>
+        <p>Every property is vetted for quality, cleanliness, and guest experience before appearing on our platform.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Secure Payments</h3>
+        <p>Bank-grade encryption protects every transaction. Pay with confidence knowing your data is always safe.</p>
+      </div>
+      <div class="feature-card">
+        <h3>24 / 7 Guest Support</h3>
+        <p>Our dedicated support team is available around the clock to assist with any queries or booking changes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ BANNER ═══ -->
+  <section class="home-banner">
+    <div class="home-banner-inner">
+      <div class="section-label">Special Offers</div>
+      <h2>Save Up to 20% This Month</h2>
+      <p>Take advantage of our exclusive monthly promotions and weekend packages. Comfort doesn't have to come at a premium.</p>
+      <div class="home-banner-actions">
+        <a href="Special_offers.html" class="btn btn-gold">Explore Offers</a>
+        <a href="Room_Gallery.html" class="btn btn-outline">All Rooms</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer>
+    <div class="footer-links">
+      <a href="about_us.html">About Us</a>
+      <a href="contact_us.html">Contact</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms & Conditions</a>
+    </div>
+    <p>&copy; 2026 <strong>RoomBooking.com</strong> — All rights reserved.</p>
+  </footer>
+
+<script>
+var user = localStorage.getItem("rb_user");
+if (user) {
+  var el = document.getElementById("logoutBtn");
+  if (el) el.textContent = "Sign Out (" + user + ")";
+}
+var logoutBtn = document.getElementById("logoutBtn");
+if (logoutBtn) {
+  logoutBtn.addEventListener("click", function(e) {
+    e.preventDefault();
+    localStorage.removeItem("rb_logged_in");
+    localStorage.removeItem("rb_user");
+    window.location.href = "Login_.html";
+  });
+}
+</script>
+</body>
+</html>

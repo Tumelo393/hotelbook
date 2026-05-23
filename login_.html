@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login — RoomBooking.com</title>
+  <link rel="stylesheet" href="Style.css">
+</head>
+<body class="page-login">
+
+  <!-- ═══ SPLASH SCREEN ═══ -->
+  <div id="splash" role="presentation" aria-hidden="true">
+    <div class="splash-ring"></div>
+    <div class="splash-content">
+      <div class="splash-icon">🏨</div>
+      <div class="splash-title">Room<span>Booking</span></div>
+      <div class="splash-tagline">Coastal Comfort, Seamlessly Yours</div>
+      <div class="splash-bar"></div>
+    </div>
+  </div>
+
+  <!-- ═══ LOGIN FORM ═══ -->
+  <div class="login-wrap">
+    <div class="login-card">
+      <div class="login-card-icon">🏨</div>
+      <div class="section-label">Welcome back</div>
+      <h2>Sign In</h2>
+      <p>Access your account to manage bookings and discover exclusive offers.</p>
+
+      <div class="login-error" id="loginError">Please enter both your username and password.</div>
+
+      <div class="login-fields">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" placeholder="your.username" autocomplete="username">
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="••••••••" autocomplete="current-password">
+        </div>
+        <button class="login-submit" id="loginBtn" type="button">Sign In →</button>
+      </div>
+
+      <div class="login-divider">or</div>
+      <a href="Register.html" class="login-signup-btn">Create a Free Account</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-links">
+      <a href="About_Us.html">About</a>
+      <a href="Contact_Us.html">Contact</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms</a>
+    </div>
+    <p>&copy; 2026 <strong>RoomBooking.com</strong> — All rights reserved.</p>
+  </footer>
+
+  <script>
+    // If already logged in, skip straight to home
+    if (localStorage.getItem('rb_logged_in') === 'true') {
+      window.location.href = 'Index.html';
+    }
+
+    function doLogin() {
+      var username = document.getElementById('username').value.trim();
+      var password = document.getElementById('password').value.trim();
+      var errorBox = document.getElementById('loginError');
+
+      if (!username || !password) {
+        errorBox.textContent = 'Please enter both your username and password.';
+        errorBox.style.display = 'block';
+        return;
+      }
+
+      // Store session flag
+      localStorage.setItem('rb_logged_in', 'true');
+      localStorage.setItem('rb_user', username);
+
+      // Go to home
+      window.location.href = 'Index.html';
+    }
+
+    document.getElementById('loginBtn').addEventListener('click', doLogin);
+
+    document.getElementById('username').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') doLogin();
+    });
+    document.getElementById('password').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') doLogin();
+    });
+  </script>
+
+</body>
+</html>
